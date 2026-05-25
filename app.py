@@ -27,6 +27,10 @@ if sesion == "Ejercicio 1":
   # Crear lista persistente
   if "datos" not in st.session_state:
     st.session_state.datos = []
+
+    st.session_state.txtconcepto = ""
+    st.session_state.boxmovimiento = "Ingreso"
+    st.session_state.txtvalor = 0
     
   concepto = st.text_input("Ingrese Concepto",key="txtconcepto")
   movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] , key="boxmovimiento")
@@ -34,9 +38,7 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
-    st.session_state.txtconcepto = ""
-    st.session_state.boxmovimiento = "Ingreso"
-    st.session_state.txtvalor = 0
+
     # Crear DataFrame
     df = pd.DataFrame(
         st.session_state.datos,
