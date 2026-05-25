@@ -28,9 +28,9 @@ if sesion == "Ejercicio 1":
   if "datos" not in st.session_state:
     st.session_state.datos = []
     
-  concepto = st.text_input("Ingrese Concepto",key=concepto)
-  movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] , key=movimiento)
-  valor = st.number_input("Ingrese Valor", key=valor)
+  concepto = st.text_input("Ingrese Concepto",key="concepto")
+  movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] , key="movimiento")
+  valor = st.number_input("Ingrese Valor", key="valor")
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
