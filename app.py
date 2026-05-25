@@ -28,11 +28,6 @@ if sesion == "Ejercicio 1":
   if "datos" not in st.session_state:
     st.session_state.datos = []
     
-  # Crear DataFrame
-  df = pd.DataFrame(
-      datos,
-      columns=["Descripción", "Tipo", "Monto"]
-  )  
   concepto = st.text_input("Ingrese Concepto")
   movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] )
   valor = st.number_input("Ingrese Valor")
