@@ -23,7 +23,8 @@ if sesion == "Home":
 if sesion == "Ejercicio 1":
   st.write("Bienvenido al Ejercicio 1")
   st.image("Python_logo.png" )
-  concepto = st.number_input("Ingrese el precio del producto", min_value = 0 , max_value = 5000 , value = 1200)
+  concepto = st.number_input("Ingrese Concepto")
+  movimiento = st.sidebar.selectbox("Escoger", ["Ingreso", "Gasto"] )
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
