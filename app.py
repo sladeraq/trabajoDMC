@@ -29,10 +29,11 @@ if sesion == "Ejercicio 1":
   
   concepto = st.text_input("Ingrese Concepto")
   movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] )
+  valor = st.number_input("Ingrese Valor")
 
   if st.button ("Procesar"):
     st.write ("presionaste")
-    st.session_state.datoss.append ([concepto, movimiento])
+    st.session_state.datos.append ([concepto, movimiento, valor])
     st.write (st.session_state.datos)
 
 
