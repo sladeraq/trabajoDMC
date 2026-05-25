@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import libreria_funciones as lf
 
 st.title("Mi Segunda aplicación en python")
@@ -26,7 +27,12 @@ if sesion == "Ejercicio 1":
   # Crear lista persistente
   if "datos" not in st.session_state:
     st.session_state.datos = []
-  
+    
+  # Crear DataFrame
+  df = pd.DataFrame(
+      datos,
+      columns=["Descripción", "Tipo", "Monto"]
+  )  
   concepto = st.text_input("Ingrese Concepto")
   movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] )
   valor = st.number_input("Ingrese Valor")
@@ -36,7 +42,13 @@ if sesion == "Ejercicio 1":
     st.session_state.datos.append ([concepto, movimiento, valor])
     st.write (st.session_state.datos)
 
+  # Crear DataFrame
+  df = pd.DataFrame(
+      st.session_state.datos,
+      columns=["Descripción", "Tipo", "Monto"]
+  )  
 
+  st.table(df)
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
