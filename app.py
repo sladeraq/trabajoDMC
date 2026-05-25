@@ -46,7 +46,7 @@ if sesion == "Ejercicio 1":
     mostrar_popup()
     botonreporte = st.button ("Reporte")
     
-  if st.button ("Procesar"): 
+  if st.button ("Reporte"): 
     # Crear DataFrame
     df = pd.DataFrame(
         st.session_state.datos,
