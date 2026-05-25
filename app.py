@@ -41,18 +41,23 @@ if sesion == "Ejercicio 1":
   movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] , key="boxmovimiento")
   valor = st.number_input("Ingrese Valor", key="txtvalor")
 
-  if st.button ("Procesar"):
+  if st.button ("Registrar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
     mostrar_popup()
-    #botonreporte = st.button ("Reporte")
     
-  if st.button ("Reporte"): 
+  if st.button ("Generar Reporte"): 
     # Crear DataFrame
     df = pd.DataFrame(
         st.session_state.datos,
         columns=["Descripción", "Tipo", "Monto"]
     )  
+    st.write("Movimientos Registrados")
     st.table(df)
+    st.divider()
+    st.write("TOTAL DE INGRESOS :")
+    st.write("TOTAL DE GASTOS :")
+    st.write("SALDO FINAL :")
+    st.write("FLUJO DE CAJA : ")
 
 
 elif sesion == "Sesión 2":
