@@ -23,6 +23,13 @@ if sesion == "Home":
   st.write("Tecnologia utilizadas: HTML")
 
 if sesion == "Ejercicio 1":
+  @st.dialog("Mensaje")
+  def mostrar_popup():
+    st.write("Contenido Registrado correctamente")
+
+    if st.button("Cerrar"):
+        st.rerun()
+  
   st.write("Bienvenido al Ejercicio 1")
   st.image("Python_logo.png" )
   # Crear lista persistente
@@ -36,6 +43,7 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
+    mostrar_popup()
     botonreporte = st.button ("Reporte")
     
     # Crear DataFrame
@@ -44,6 +52,7 @@ if sesion == "Ejercicio 1":
         columns=["Descripción", "Tipo", "Monto"]
     )  
 
+    
     st.table(df)
 
 
