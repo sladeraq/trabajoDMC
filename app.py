@@ -23,13 +23,17 @@ if sesion == "Home":
 if sesion == "Ejercicio 1":
   st.write("Bienvenido al Ejercicio 1")
   st.image("Python_logo.png" )
+  # Crear lista persistente
+  if "datos" not in st.session_state:
+    st.session_state.datos = []
+  
   concepto = st.number_input("Ingrese Concepto")
   movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] )
-  listaDatos = []
+
   if st.button ("Procesar"):
     st.write ("presionaste")
-    listaDatos.append ([concepto, movimiento])
-    st.write (listaDatos)
+    st.session_state.datoss.append ([concepto, movimiento])
+    st.write (st.session_state.datos)
 
 
 
