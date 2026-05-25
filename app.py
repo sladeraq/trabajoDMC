@@ -37,13 +37,13 @@ if sesion == "Ejercicio 1":
     st.session_state.datos.append ([concepto, movimiento, valor])
     st.write (st.session_state.datos)
 
-  # Crear DataFrame
-  df = pd.DataFrame(
-      st.session_state.datos,
-      columns=["Descripción", "Tipo", "Monto"]
-  )  
+    # Crear DataFrame
+    df = pd.DataFrame(
+        st.session_state.datos,
+        columns=["Descripción", "Tipo", "Monto"]
+    )  
 
-  st.table(df)
+    st.table(df)
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
