@@ -43,7 +43,11 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
-
+    # Limpiar controles
+    st.session_state.txtconcepto = ""
+    st.session_state.boxmovimiento = "Ingreso"
+    st.session_state.txtvalor = 0
+    
     # Crear DataFrame
     df = pd.DataFrame(
         st.session_state.datos,
