@@ -44,7 +44,7 @@ if sesion == "Ejercicio 1":
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
     mostrar_popup()
-    botonreporte = st.button ("Reporte")
+    #botonreporte = st.button ("Reporte")
     
   if st.button ("Reporte"): 
     # Crear DataFrame
