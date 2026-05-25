@@ -34,7 +34,7 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
-    st.text_imput.txtconcepto = ""
+    st.text_input.txtconcepto = ""
     st.selectbox.boxmovimiento = "Ingreso"
     st.number_imput.txtvalor = 0
     # Crear DataFrame
