@@ -12,6 +12,7 @@ st.write("Elaborado por: Carlos Carrillo")
 st.sidebar.image("DMC.png")
 
 sesion = st.sidebar.selectbox("Seleccione Menu", ["Home", "Ejercicio 1","Ejercicio 2","Ejercicio 3","Ejercicio 4"] )
+CheckButton = False
 
 if sesion == "Home":
   st.write("Bienvenido al trabajo de Pytho")
@@ -35,7 +36,9 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
-
+    CheckButton = True
+      if CheckButton = True
+      st.button ("Reporte"):
     
     # Crear DataFrame
     df = pd.DataFrame(
