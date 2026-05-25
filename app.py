@@ -29,6 +29,7 @@ if sesion == "Ejercicio 1":
   if st.button ("Procesar"):
     st.write ("presionaste")
     listaDatos.append ([concepto, movimiento])
+    st.write (listaDatos)
 
 
 
