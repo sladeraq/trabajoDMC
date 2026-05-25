@@ -34,9 +34,7 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
-    st.text_input.txtconcepto = ""
-    st.selectbox.boxmovimiento = "Ingreso"
-    st.number_imput.txtvalor = 0
+
     # Crear DataFrame
     df = pd.DataFrame(
         st.session_state.datos,
@@ -44,6 +42,9 @@ if sesion == "Ejercicio 1":
     )  
 
     st.table(df)
+  st.session_state.txtconcepto = ""
+  st.session_state.boxmovimiento = "Ingreso"
+  st.session_state.txtvalor = 0
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
