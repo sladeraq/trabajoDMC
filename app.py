@@ -10,7 +10,15 @@ st.write("Elaborado por: Carlos Carrillo")
 
 st.sidebar.image("DMC.png")
 
-sesion = st.sidebar.selectbox("Seleccione una sesión", ["Sesión 1","Sesión 2","Sesión 3","Sesión 4"] )
+sesion = st.sidebar.selectbox("Seleccione Menu", ["Home", "Ejercicio 1","Ejercicio 2","Ejercicio 3","Ejercicio 4"] )
+
+if sesion == "Home":
+  st.write("Bienvenido al trabajo de Pytho")
+  st.image("Python_logo.png" )
+  st.write("Alumno: Samuel Ladera Quinto")
+  st.write("Modulo: Python Fundamentos")
+  st.write("---------------------------------")
+  st.write("Tecnologia utilizadas: HTML")
 
 if sesion == "Sesión 1":
   st.write("Bienvenido la sesión 1")
