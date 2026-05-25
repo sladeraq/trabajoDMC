@@ -24,9 +24,13 @@ if sesion == "Ejercicio 1":
   st.write("Bienvenido al Ejercicio 1")
   st.image("Python_logo.png" )
   concepto = st.number_input("Ingrese Concepto")
-  movimiento = st.selectbox("Escoger", ["Ingreso", "Gasto"] )
+  movimiento = st.selectbox("Escoger Tipo de Movimiento", ["Ingreso", "Gasto"] )
+  listaDatos = []
   if st.button ("Procesar"):
     st.write ("presionaste")
+    listaDatos.append ([concepto, movimiento])
+
+
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
