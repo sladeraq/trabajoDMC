@@ -33,10 +33,10 @@ if sesion == "Ejercicio 1":
   valor = st.number_input("Ingrese Valor")
 
   if st.button ("Procesar"):
-    st.write ("presionaste")
     st.session_state.datos.append ([concepto, movimiento, valor])
-    st.write (st.session_state.datos)
-
+    st.text_input.value = ""
+    st.selectbox.value = ""
+    st.number_input.value=""
     # Crear DataFrame
     df = pd.DataFrame(
         st.session_state.datos,
