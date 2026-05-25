@@ -20,9 +20,10 @@ if sesion == "Home":
   st.write("---------------------------------")
   st.write("Tecnologia utilizadas: HTML")
 
-if sesion == "Sesión 1":
-  st.write("Bienvenido la sesión 1")
+if sesion == "Ejercicio 1":
+  st.write("Bienvenido al Ejercicio 1")
   st.image("Python_logo.png" )
+  concepto = st.number_input("Ingrese el precio del producto", min_value = 0 , max_value = 5000 , value = 1200)
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
