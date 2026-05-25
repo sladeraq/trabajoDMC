@@ -36,7 +36,7 @@ if sesion == "Ejercicio 1":
 
   if st.button ("Procesar"):
     st.session_state.datos.append ([concepto, movimiento, valor])
-      st.button ("Reporte")
+    botonreporte = st.button ("Reporte")
     
     # Crear DataFrame
     df = pd.DataFrame(
