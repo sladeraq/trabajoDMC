@@ -30,7 +30,6 @@ if sesion == "Ejercicio 1":
         st.rerun()
   
   st.write("Bienvenido al Ejercicio 1")
-  st.image("Python_logo.png" )
   # Crear lista persistente
   if "datos" not in st.session_state:
     st.session_state.datos = []
@@ -84,7 +83,7 @@ elif sesion == "Ejercicio 2":
     
   st.divider()
   
-  # CREAR ARRAY PERSISTENTE
+  #aqui se crra array
   if "productos" not in st.session_state:
   
       st.session_state.productos = np.empty(
@@ -92,7 +91,7 @@ elif sesion == "Ejercicio 2":
           dtype=object
       )
   
-  # FORMULARIO
+  # el formulario
   st.subheader("Formulario de Registro")
   
   producto = st.text_input("Ingrese Producto")
@@ -100,14 +99,14 @@ elif sesion == "Ejercicio 2":
   precio = st.number_input("Ingrese Precio",min_value=0.0,step=1.0)
   cantidad = st.number_input("Ingrese Cantidad",min_value=1,step=1)
   
-  # CALCULAR TOTAL
+  # calcular TOTAL
   total = precio * cantidad
   
   st.write("TOTAL :", total)
   
   st.divider()
   
-  # BOTON
+  # boton
   if st.button("Agregar Registro"):
   
       # NUEVA FILA
@@ -123,7 +122,7 @@ elif sesion == "Ejercicio 2":
   
       st.success("Registro agregado correctamente")
   
-  # CONVERTIR A DATAFRAME
+  # convertir a DATAFRAME
   df = pd.DataFrame(
       st.session_state.productos,
       columns=[
@@ -135,12 +134,12 @@ elif sesion == "Ejercicio 2":
       ]
   )
   
-  # MOSTRAR TABLA
+  # muestra la TABLA
   st.write("DataFrame Actualizado")
   
   st.dataframe(df)
   
-  # CALCULOS OPCIONALES
+  # otros calculos
   if len(df) > 0:
   
       st.divider()
@@ -159,7 +158,7 @@ elif sesion == "Ejercicio 2":
 
 elif sesion == "Ejercicio 3":
     
-    # IMPORTAR FUNCION
+    # importa la FUNCION
     from libreria_funciones_proyecto1 import (
         calcular_almacenamiento_respaldo
     )
@@ -169,17 +168,17 @@ elif sesion == "Ejercicio 3":
     
     st.divider()
     
-    # HISTORICO
+    # historico
     if "historico" not in st.session_state:
         st.session_state.historico = []
     
-    # SELECTOR DE FUNCION
+    # selector  DE FUNCION
     funcion = st.selectbox(
         "Seleccione Función",["Calcular Almacenamiento de Respaldo","Otras Funciones"])
     
     st.divider()
     
-    # PARAMETROS
+    # parametros
     st.subheader("Ingreso de Parámetros")
     
     numero_usuarios = st.number_input(
@@ -208,10 +207,10 @@ elif sesion == "Ejercicio 3":
     
     st.divider()
     
-    # BOTON
+    # boton
     if st.button("Ejecutar Función"):
     
-        # EJECUTAR FUNCION
+        # ejecutar la FUNCION
         resultado = calcular_almacenamiento_respaldo(
             numero_usuarios,
             archivos_por_usuario,
@@ -219,7 +218,7 @@ elif sesion == "Ejercicio 3":
             factor_respaldo
         )
     
-        # MOSTRAR RESULTADOS
+        # mostrar los RESULTADOS
         st.subheader("Resultado")
     
         st.write(
@@ -232,7 +231,7 @@ elif sesion == "Ejercicio 3":
             resultado["almacenamiento_estimado_gb"]
         )
     
-        # GUARDAR HISTORICO
+        # guardar HISTORICO
         st.session_state.historico.append([
             numero_usuarios,
             archivos_por_usuario,
@@ -242,7 +241,7 @@ elif sesion == "Ejercicio 3":
             resultado["almacenamiento_estimado_gb"]
         ])
     
-    # DATAFRAME HISTORICO
+    # DATAFRAME historico
     df = pd.DataFrame(
         st.session_state.historico,
         columns=[
@@ -257,35 +256,18 @@ elif sesion == "Ejercicio 3":
     
     st.divider()
     
-    # MOSTRAR TABLA
+    # mostrar la TABLA
     st.subheader("Histórico de Resultados")
     
     st.dataframe(df)
 
 elif sesion == "Ejercicio 4":
   
-  # IMPORTAR CLASE
+  # importar CLASE
   from libreria_clases_proyecto1 import Servidor
   
-  # TITULO
+  # titulo
   st.title("Proyecto CRUD con Clases")
-  
-  # DESCRIPCION
-  st.markdown("""
-  Aplicación desarrollada usando Programación Orientada a Objetos.
-  
-  La app permite:
-  
-  - Crear servidores
-  - Visualizar registros
-  - Actualizar registros
-  - Eliminar registros
-  - Calcular disponibilidad y estado
-  
-  Usando la clase:
-  
-  - Servidor
-  """)
   
   st.divider()
   
@@ -293,17 +275,13 @@ elif sesion == "Ejercicio 4":
   if "servidores" not in st.session_state:
       st.session_state.servidores = []
   
-  # TABS
+  # creacion de tabs 
   tab1, tab2, tab3, tab4 = st.tabs([
       "Crear",
       "Visualizar",
       "Actualizar",
       "Eliminar"
   ])
-  
-  # ======================================================
-  # TAB CREAR
-  # ======================================================
   
   with tab1:
   
@@ -353,11 +331,7 @@ elif sesion == "Ejercicio 4":
   
               st.error(str(e))
   
-  # ======================================================
-  # TAB VISUALIZAR
-  # ======================================================
-  
-  with tab2:
+   with tab2:
   
       st.subheader("Listado de Servidores")
   
@@ -372,10 +346,6 @@ elif sesion == "Ejercicio 4":
       else:
   
           st.warning("No existen registros")
-  
-  # ======================================================
-  # TAB ACTUALIZAR
-  # ======================================================
   
   with tab3:
   
@@ -415,10 +385,6 @@ elif sesion == "Ejercicio 4":
       else:
   
           st.warning("No existen registros")
-  
-  # ======================================================
-  # TAB ELIMINAR
-  # ======================================================
   
   with tab4:
   
