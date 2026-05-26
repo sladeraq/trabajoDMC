@@ -3,11 +3,9 @@ import numpy as np
 import pandas as pd
 import libreria_funciones as lf
 
-st.title("Mi Segunda aplicación en python")
+st.title("Trabajo de Python")
 
-st.sidebar.title("Parámetros")
-
-st.write("Elaborado por: Carlos Carrillo")
+#st.sidebar.title("Parámetros")
 
 st.sidebar.image("DMC.png")
 
@@ -82,28 +80,10 @@ if sesion == "Ejercicio 1":
     )
 
 elif sesion == "Ejercicio 2":
-
   
   # TITULO
   st.title("Ejercicio 2 – Registro con NumPy")
-  
-  # DESCRIPCION
-  st.markdown("""
-  Este ejercicio permite registrar productos usando:
-  
-  - NumPy Arrays
-  - DataFrame de pandas
-  - Widgets de Streamlit
-  
-  Cada registro almacenará:
-  
-  - Nombre del producto
-  - Categoría
-  - Precio
-  - Cantidad
-  - Total
-  """)
-  
+   
   st.divider()
   
   # CREAR ARRAY PERSISTENTE
@@ -117,31 +97,10 @@ elif sesion == "Ejercicio 2":
   # FORMULARIO
   st.subheader("Formulario de Registro")
   
-  producto = st.text_input(
-      "Ingrese Producto"
-  )
-  
-  categoria = st.selectbox(
-      "Seleccione Categoría",
-      [
-          "Tecnología",
-          "Ropa",
-          "Hogar",
-          "Alimentos"
-      ]
-  )
-  
-  precio = st.number_input(
-      "Ingrese Precio",
-      min_value=0.0,
-      step=1.0
-  )
-  
-  cantidad = st.number_input(
-      "Ingrese Cantidad",
-      min_value=1,
-      step=1
-  )
+  producto = st.text_input("Ingrese Producto")
+  categoria = st.selectbox("Seleccione Categoría",["Tecnología","Ropa","Hogar","Alimentos"])
+  precio = st.number_input("Ingrese Precio",min_value=0.0,step=1.0)
+  cantidad = st.number_input("Ingrese Cantidad",min_value=1,step=1)
   
   # CALCULAR TOTAL
   total = precio * cantidad
@@ -154,16 +113,7 @@ elif sesion == "Ejercicio 2":
   if st.button("Agregar Registro"):
   
       # NUEVA FILA
-      nueva_fila = np.array(
-          [[
-              producto,
-              categoria,
-              precio,
-              cantidad,
-              total
-          ]],
-          dtype=object
-      )
+      nueva_fila = np.array([[producto,categoria,precio,cantidad,total]],dtype=object)
   
       # AGREGAR AL ARRAY
       st.session_state.productos = np.vstack(
