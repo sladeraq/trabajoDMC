@@ -79,7 +79,7 @@ if sesion == "Ejercicio 1":
     st.markdown(
       f"FLUJO DE CAJA : <span style='color:red'>{vdato}</span>",
       unsafe_allow_html=True
-      )
+    )
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
