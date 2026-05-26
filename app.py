@@ -77,7 +77,7 @@ if sesion == "Ejercicio 1":
     st.write("TOTAL DE GASTOS :", totalgastos)
     st.write("SALDO FINAL :", SaldoFinal)
     st.markdown(
-      f"FLUJO DE CAJA : <span style='color:red'>{vdato}</span>",
+      f"FLUJO DE CAJA : <span style='color:red'>{Flujo}</span>",
       unsafe_allow_html=True
     )
 
