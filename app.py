@@ -80,10 +80,7 @@ if sesion == "Ejercicio 1":
     )
 
 elif sesion == "Ejercicio 2":
-  
-  # TITULO
-  st.title("Ejercicio 2 – Registro con NumPy")
-   
+    
   st.divider()
   
   # CREAR ARRAY PERSISTENTE
@@ -138,7 +135,7 @@ elif sesion == "Ejercicio 2":
   )
   
   # MOSTRAR TABLA
-  st.subheader("DataFrame Actualizado")
+  st.write("DataFrame Actualizado")
   
   st.dataframe(df)
   
