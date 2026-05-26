@@ -79,6 +79,11 @@ if sesion == "Ejercicio 1":
     st.write("FLUJO DE CAJA : ", Flujo)
 
 
+    st.markdown(
+        f"<h3 style='color:red'>{Flujo}</h3>",
+        unsafe_allow_html=True
+    )
+
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
 
