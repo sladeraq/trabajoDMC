@@ -157,13 +157,130 @@ elif sesion == "Ejercicio 2":
 
 
 elif sesion == "Sesión 3":
-  st.write("Bienvenido la sesión 3")
-  
-  fin_rango = st.slider("Selecione un valor",min_value = 0 , max_value=20, value =7 )
-
-  arreglo = np.arange(0 , fin_rango)
-
-  st.write(arreglo)
+    
+    import streamlit as st
+    import pandas as pd
+    
+    # IMPORTAR FUNCION
+    from libreria_funciones_proyecto1 import (
+        calcular_almacenamiento_respaldo
+    )
+    
+    # TITULO
+    st.title("Proyecto – Uso de Librería de Funciones")
+    
+    # DESCRIPCION
+    st.markdown("""
+    Esta aplicación permite ejecutar funciones desde una librería Python
+    y visualizar los resultados en pantalla.
+    
+    La app realiza:
+    
+    - Selección de función
+    - Ingreso de parámetros
+    - Ejecución del cálculo
+    - Visualización del resultado
+    - Histórico de resultados
+    """)
+    
+    st.divider()
+    
+    # HISTORICO
+    if "historico" not in st.session_state:
+        st.session_state.historico = []
+    
+    # SELECTOR DE FUNCION
+    funcion = st.selectbox(
+        "Seleccione Función",
+        [
+            "Calcular Almacenamiento de Respaldo"
+        ]
+    )
+    
+    st.divider()
+    
+    # PARAMETROS
+    st.subheader("Ingreso de Parámetros")
+    
+    numero_usuarios = st.number_input(
+        "Número de Usuarios",
+        min_value=1,
+        step=1
+    )
+    
+    archivos_por_usuario = st.number_input(
+        "Archivos por Usuario",
+        min_value=1,
+        step=1
+    )
+    
+    tamano_promedio_mb = st.number_input(
+        "Tamaño Promedio por Archivo (MB)",
+        min_value=0.1,
+        step=0.1
+    )
+    
+    factor_respaldo = st.number_input(
+        "Factor de Respaldo",
+        min_value=1.0,
+        step=0.1
+    )
+    
+    st.divider()
+    
+    # BOTON
+    if st.button("Ejecutar Función"):
+    
+        # EJECUTAR FUNCION
+        resultado = calcular_almacenamiento_respaldo(
+            numero_usuarios,
+            archivos_por_usuario,
+            tamano_promedio_mb,
+            factor_respaldo
+        )
+    
+        # MOSTRAR RESULTADOS
+        st.subheader("Resultado")
+    
+        st.write(
+            "Almacenamiento Estimado MB :",
+            resultado["almacenamiento_estimado_mb"]
+        )
+    
+        st.write(
+            "Almacenamiento Estimado GB :",
+            resultado["almacenamiento_estimado_gb"]
+        )
+    
+        # GUARDAR HISTORICO
+        st.session_state.historico.append([
+            numero_usuarios,
+            archivos_por_usuario,
+            tamano_promedio_mb,
+            factor_respaldo,
+            resultado["almacenamiento_estimado_mb"],
+            resultado["almacenamiento_estimado_gb"]
+        ])
+    
+    # DATAFRAME HISTORICO
+    df = pd.DataFrame(
+        st.session_state.historico,
+        columns=[
+            "Usuarios",
+            "Archivos x Usuario",
+            "Tamaño MB",
+            "Factor Respaldo",
+            "Resultado MB",
+            "Resultado GB"
+        ]
+    )
+    
+    st.divider()
+    
+    # MOSTRAR TABLA
+    st.subheader("Histórico de Resultados")
+    
+    st.dataframe(df)
 
 elif sesion == "Sesión 4":
    st.write("Bienvenido a la sesión 4")
