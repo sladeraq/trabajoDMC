@@ -81,7 +81,7 @@ if sesion == "Ejercicio 1":
       unsafe_allow_html=True
     )
 
-elif sesion == "Sesión 2":
+elif sesion == "Ejercicio 2":
 
   
   # TITULO
