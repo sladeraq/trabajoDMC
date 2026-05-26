@@ -262,8 +262,6 @@ elif sesion == "Ejercicio 3":
     st.dataframe(df)
 
 elif sesion == "Ejercicio 4":
-  import streamlit as st
-  import pandas as pd
   
   # IMPORTAR CLASE
   from libreria_clases_proyecto1 import Servidor
