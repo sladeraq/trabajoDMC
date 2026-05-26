@@ -267,7 +267,7 @@ elif sesion == "Ejercicio 4":
   from libreria_clases_proyecto1 import Servidor
   
   # titulo
-  st.title("Proyecto CRUD con Clases")
+  st.subheader("Proyecto CRUD con Clases")
   
   st.divider()
   
@@ -285,8 +285,7 @@ elif sesion == "Ejercicio 4":
   
   with tab1:
   
-      st.subheader("Crear Nuevo Servidor")
-  
+      st.markdown("**Crear Nuevo Servidor**")
       nombre = st.text_input("Nombre Servidor")
   
       tiempo_total = st.number_input(
