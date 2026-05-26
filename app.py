@@ -60,11 +60,23 @@ if sesion == "Ejercicio 1":
     for fila in st.session_state.datos
     if fila[1] == "Ingreso"
     )
+
+    totalgastos = sum(
+    fila[2]
+    for fila in st.session_state.datos
+    if fila[1] == "Gastos"
+    )
+    
+    SaldoFinal = totalingresos - totalgastos
+    if SaldoFinal > 0
+      Flujo= "A FAVOR"
+    elif
+      Flujo= "EN CONTRA"
     
     st.write("TOTAL DE INGRESOS :", totalingresos)
-    st.write("TOTAL DE GASTOS :")
-    st.write("SALDO FINAL :")
-    st.write("FLUJO DE CAJA : ")
+    st.write("TOTAL DE GASTOS :", totalgastos)
+    st.write("SALDO FINAL :", SaldoFinal)
+    st.write("FLUJO DE CAJA : ", Flujo)
 
 
 elif sesion == "Sesión 2":
