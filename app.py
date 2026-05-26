@@ -156,7 +156,7 @@ elif sesion == "Ejercicio 2":
       )
 
 
-elif sesion == "Sesión 3":
+elif sesion == "Ejercicio 3":
     
     import streamlit as st
     import pandas as pd
