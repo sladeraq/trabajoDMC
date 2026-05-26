@@ -64,7 +64,7 @@ if sesion == "Ejercicio 1":
     totalgastos = sum(
     fila[2]
     for fila in st.session_state.datos
-    if fila[1] == "Gastos"
+    if fila[1] == "Gasto"
     )
     
     SaldoFinal = totalingresos - totalgastos
