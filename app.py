@@ -261,12 +261,193 @@ elif sesion == "Ejercicio 3":
     
     st.dataframe(df)
 
-elif sesion == "Sesión 4":
-   st.write("Bienvenido a la sesión 4")
-   principal = st.number_input("Ingrese el monto del préstamo", value=1000)
-   tasa_anual = st.number_input("Ingrese la tasa anual en decimal", value=0.1, min_value=0.0, max_value=1.0)
-   anios = st.number_input("Ingrese el número de años del préstamo", value=1)
-   pagos_anio = st.number_input("Ingrese la cantidad de pagos por año", value=12)
-    
-   cuota = round(lf.cuota_prestamo(principal, tasa_anual, anios, pagos_anio),2)
-   st.write(f"El valor de la cuota es {cuota}")
+elif sesion == "Ejercicio 4":
+  import streamlit as st
+  import pandas as pd
+  
+  # IMPORTAR CLASE
+  from libreria_clases_proyecto1 import Servidor
+  
+  # TITULO
+  st.title("Proyecto CRUD con Clases")
+  
+  # DESCRIPCION
+  st.markdown("""
+  Aplicación desarrollada usando Programación Orientada a Objetos.
+  
+  La app permite:
+  
+  - Crear servidores
+  - Visualizar registros
+  - Actualizar registros
+  - Eliminar registros
+  - Calcular disponibilidad y estado
+  
+  Usando la clase:
+  
+  - Servidor
+  """)
+  
+  st.divider()
+  
+  # SESSION STATE
+  if "servidores" not in st.session_state:
+      st.session_state.servidores = []
+  
+  # TABS
+  tab1, tab2, tab3, tab4 = st.tabs([
+      "Crear",
+      "Visualizar",
+      "Actualizar",
+      "Eliminar"
+  ])
+  
+  # ======================================================
+  # TAB CREAR
+  # ======================================================
+  
+  with tab1:
+  
+      st.subheader("Crear Nuevo Servidor")
+  
+      nombre = st.text_input("Nombre Servidor")
+  
+      tiempo_total = st.number_input(
+          "Tiempo Total Horas",
+          min_value=1.0
+      )
+  
+      tiempo_caida = st.number_input(
+          "Tiempo Caída Horas",
+          min_value=0.0
+      )
+  
+      almacenamiento_total = st.number_input(
+          "Almacenamiento Total GB",
+          min_value=1.0
+      )
+  
+      almacenamiento_usado = st.number_input(
+          "Almacenamiento Usado GB",
+          min_value=0.0
+      )
+  
+      if st.button("Guardar Servidor"):
+  
+          try:
+  
+              servidor = Servidor(
+                  nombre,
+                  tiempo_total,
+                  tiempo_caida,
+                  almacenamiento_total,
+                  almacenamiento_usado
+              )
+  
+              resumen = servidor.resumen()
+  
+              st.session_state.servidores.append(resumen)
+  
+              st.success("Servidor registrado correctamente")
+  
+          except Exception as e:
+  
+              st.error(str(e))
+  
+  # ======================================================
+  # TAB VISUALIZAR
+  # ======================================================
+  
+  with tab2:
+  
+      st.subheader("Listado de Servidores")
+  
+      if len(st.session_state.servidores) > 0:
+  
+          df = pd.DataFrame(
+              st.session_state.servidores
+          )
+  
+          st.dataframe(df)
+  
+      else:
+  
+          st.warning("No existen registros")
+  
+  # ======================================================
+  # TAB ACTUALIZAR
+  # ======================================================
+  
+  with tab3:
+  
+      st.subheader("Actualizar Registro")
+  
+      if len(st.session_state.servidores) > 0:
+  
+          nombres = [
+              s["servidor"]
+              for s in st.session_state.servidores
+          ]
+  
+          servidor_select = st.selectbox(
+              "Seleccione Servidor",
+              nombres
+          )
+  
+          nuevo_estado = st.selectbox(
+              "Nuevo Estado",
+              [
+                  "Óptimo",
+                  "Advertencia",
+                  "Crítico"
+              ]
+          )
+  
+          if st.button("Actualizar"):
+  
+              for s in st.session_state.servidores:
+  
+                  if s["servidor"] == servidor_select:
+  
+                      s["estado"] = nuevo_estado
+  
+              st.success("Registro actualizado")
+  
+      else:
+  
+          st.warning("No existen registros")
+  
+  # ======================================================
+  # TAB ELIMINAR
+  # ======================================================
+  
+  with tab4:
+  
+      st.subheader("Eliminar Registro")
+  
+      if len(st.session_state.servidores) > 0:
+  
+          nombres = [
+              s["servidor"]
+              for s in st.session_state.servidores
+          ]
+  
+          eliminar_servidor = st.selectbox(
+              "Seleccione Servidor a Eliminar",
+              nombres
+          )
+  
+          if st.button("Eliminar"):
+  
+              st.session_state.servidores = [
+                  s
+                  for s in st.session_state.servidores
+                  if s["servidor"] != eliminar_servidor
+              ]
+  
+              st.success("Registro eliminado")
+  
+      else:
+  
+          st.warning("No existen registros")
+        
