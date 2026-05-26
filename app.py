@@ -4,17 +4,18 @@ import pandas as pd
 import libreria_funciones as lf
 
 st.title("Trabajo de Python")
+st.image("banner.png" )
 
 #st.sidebar.title("Parámetros")
 
-st.sidebar.image("DMC.png")
+st.sidebar.image("menu.jpg")
 
 sesion = st.sidebar.selectbox("Seleccione Menu", ["Home", "Ejercicio 1","Ejercicio 2","Ejercicio 3","Ejercicio 4"] )
 CheckButton = False
 
 if sesion == "Home":
   st.write("Bienvenido al trabajo de Pytho")
-  st.image("Python_logo.png" )
+
   st.write("Alumno: Samuel Ladera Quinto")
   st.write("Modulo: Python Fundamentos")
   st.write("---------------------------------")
