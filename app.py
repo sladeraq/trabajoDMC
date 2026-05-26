@@ -58,7 +58,7 @@ if sesion == "Ejercicio 1":
     totalingresos = sum(
     fila[2]
     for fila in st.session_state.datos
-    if fila[0] == "Ingreso"
+    if fila[1] == "Ingreso"
     )
     
     st.write("TOTAL DE INGRESOS :", totalingresos)
