@@ -82,14 +82,131 @@ if sesion == "Ejercicio 1":
     )
 
 elif sesion == "Sesión 2":
-  st.write("Bienvenido la sesión 2")
 
-  precio = st.number_input("Ingrese el precio del producto", min_value = 0 , max_value = 5000 , value = 1200)
-  descuento = st.number_input("Ingrese el descuento del producto del 0 al 100% ", min_value = 0 , max_value = 100 )
-
-  precio_final_producto = precio - (precio*(descuento/100))
-
-  st.write("El precio final del producto es: ", precio_final_producto  )
+  
+  # TITULO
+  st.title("Ejercicio 2 – Registro con NumPy")
+  
+  # DESCRIPCION
+  st.markdown("""
+  Este ejercicio permite registrar productos usando:
+  
+  - NumPy Arrays
+  - DataFrame de pandas
+  - Widgets de Streamlit
+  
+  Cada registro almacenará:
+  
+  - Nombre del producto
+  - Categoría
+  - Precio
+  - Cantidad
+  - Total
+  """)
+  
+  st.divider()
+  
+  # CREAR ARRAY PERSISTENTE
+  if "productos" not in st.session_state:
+  
+      st.session_state.productos = np.empty(
+          (0, 5),
+          dtype=object
+      )
+  
+  # FORMULARIO
+  st.subheader("Formulario de Registro")
+  
+  producto = st.text_input(
+      "Ingrese Producto"
+  )
+  
+  categoria = st.selectbox(
+      "Seleccione Categoría",
+      [
+          "Tecnología",
+          "Ropa",
+          "Hogar",
+          "Alimentos"
+      ]
+  )
+  
+  precio = st.number_input(
+      "Ingrese Precio",
+      min_value=0.0,
+      step=1.0
+  )
+  
+  cantidad = st.number_input(
+      "Ingrese Cantidad",
+      min_value=1,
+      step=1
+  )
+  
+  # CALCULAR TOTAL
+  total = precio * cantidad
+  
+  st.write("TOTAL :", total)
+  
+  st.divider()
+  
+  # BOTON
+  if st.button("Agregar Registro"):
+  
+      # NUEVA FILA
+      nueva_fila = np.array(
+          [[
+              producto,
+              categoria,
+              precio,
+              cantidad,
+              total
+          ]],
+          dtype=object
+      )
+  
+      # AGREGAR AL ARRAY
+      st.session_state.productos = np.vstack(
+          (
+              st.session_state.productos,
+              nueva_fila
+          )
+      )
+  
+      st.success("Registro agregado correctamente")
+  
+  # CONVERTIR A DATAFRAME
+  df = pd.DataFrame(
+      st.session_state.productos,
+      columns=[
+          "Producto",
+          "Categoría",
+          "Precio",
+          "Cantidad",
+          "Total"
+      ]
+  )
+  
+  # MOSTRAR TABLA
+  st.subheader("DataFrame Actualizado")
+  
+  st.dataframe(df)
+  
+  # CALCULOS OPCIONALES
+  if len(df) > 0:
+  
+      st.divider()
+  
+      total_ventas = df["Total"].astype(float).sum()
+  
+      st.markdown(
+          f"""
+          <h3 style='color:green'>
+          TOTAL GENERAL: S/. {total_ventas}
+          </h3>
+          """,
+          unsafe_allow_html=True
+      )
 
 
 elif sesion == "Sesión 3":
