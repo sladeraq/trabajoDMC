@@ -148,9 +148,9 @@ elif sesion == "Ejercicio 2":
   
       st.markdown(
           f"""
-          <h3 style='color:green'>
+          <h4 style='color:green'>
           TOTAL GENERAL: S/. {total_ventas}
-          </h3>
+          </h4>
           """,
           unsafe_allow_html=True
       )
