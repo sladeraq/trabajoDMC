@@ -80,7 +80,7 @@ if sesion == "Ejercicio 1":
 
 
     st.markdown(
-        f"<h3 style='color:red'>{Flujo}</h3>",
+        f"<h1 style='color:red'>{Flujo}</h1>",
         unsafe_allow_html=True
     )
 
