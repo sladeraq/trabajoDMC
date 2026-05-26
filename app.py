@@ -158,9 +158,6 @@ elif sesion == "Ejercicio 2":
 
 elif sesion == "Ejercicio 3":
     
-    import streamlit as st
-    import pandas as pd
-    
     # IMPORTAR FUNCION
     from libreria_funciones_proyecto1 import (
         calcular_almacenamiento_respaldo
@@ -168,20 +165,6 @@ elif sesion == "Ejercicio 3":
     
     # TITULO
     st.title("Proyecto – Uso de Librería de Funciones")
-    
-    # DESCRIPCION
-    st.markdown("""
-    Esta aplicación permite ejecutar funciones desde una librería Python
-    y visualizar los resultados en pantalla.
-    
-    La app realiza:
-    
-    - Selección de función
-    - Ingreso de parámetros
-    - Ejecución del cálculo
-    - Visualización del resultado
-    - Histórico de resultados
-    """)
     
     st.divider()
     
@@ -191,11 +174,7 @@ elif sesion == "Ejercicio 3":
     
     # SELECTOR DE FUNCION
     funcion = st.selectbox(
-        "Seleccione Función",
-        [
-            "Calcular Almacenamiento de Respaldo"
-        ]
-    )
+        "Seleccione Función",["Calcular Almacenamiento de Respaldo","Otras Funciones"])
     
     st.divider()
     
