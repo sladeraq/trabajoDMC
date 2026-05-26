@@ -70,7 +70,7 @@ if sesion == "Ejercicio 1":
     SaldoFinal = totalingresos - totalgastos
     if SaldoFinal > 0:
       Flujo= "A FAVOR"
-    else
+    else:
       Flujo= "EN CONTRA"
     
     st.write("TOTAL DE INGRESOS :", totalingresos)
