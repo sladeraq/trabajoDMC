@@ -50,11 +50,18 @@ if sesion == "Ejercicio 1":
     df = pd.DataFrame(
         st.session_state.datos,
         columns=["Descripción", "Tipo", "Monto"]
-    )  
+    )
     st.write("Movimientos Registrados")
     st.table(df)
     st.divider()
-    st.write("TOTAL DE INGRESOS :")
+
+    totalingresos = sum(
+    fila[2]
+    for fila in st.session_state.datos
+    if fila[0] == concepto_buscar
+    )
+    
+    st.write("TOTAL DE INGRESOS :", totalingresos)
     st.write("TOTAL DE GASTOS :")
     st.write("SALDO FINAL :")
     st.write("FLUJO DE CAJA : ")
