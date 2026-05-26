@@ -76,13 +76,10 @@ if sesion == "Ejercicio 1":
     st.write("TOTAL DE INGRESOS :", totalingresos)
     st.write("TOTAL DE GASTOS :", totalgastos)
     st.write("SALDO FINAL :", SaldoFinal)
-    st.write("FLUJO DE CAJA : ", Flujo)
-
-
     st.markdown(
-        f"<p style='color:red'>{Flujo}</p>",
-        unsafe_allow_html=True
-    )
+      f"FLUJO DE CAJA : <span style='color:red'>{vdato}</span>",
+      unsafe_allow_html=True
+      )
 
 elif sesion == "Sesión 2":
   st.write("Bienvenido la sesión 2")
