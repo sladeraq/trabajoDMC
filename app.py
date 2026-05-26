@@ -93,7 +93,7 @@ elif sesion == "Ejercicio 2":
   
   # el formulario
   #st.subheader("Formulario de Registro")
-  st.markdown("### **Formulario de Registro**")
+  st.markdown("**Formulario de Registro**")
   
   producto = st.text_input("Ingrese Producto")
   categoria = st.selectbox("Seleccione Categoría",["Tecnología","Ropa","Hogar","Alimentos"])
@@ -181,7 +181,9 @@ elif sesion == "Ejercicio 3":
     
     # parametros
     #st.subheader("Ingreso de Parámetros")
-    st.markdown("### **Ingreso de Parámetros**")
+    st.markdown("**Ingreso de Parámetros**")
+ 
+  
     
     numero_usuarios = st.number_input(
         "Número de Usuarios",
@@ -260,7 +262,7 @@ elif sesion == "Ejercicio 3":
     
     # mostrar la TABLA
     #st.subheader("Histórico de Resultados")
-    st.markdown("### **Histórico de Resultados**")
+    st.markdown("**Histórico de Resultados**")
     
     st.dataframe(df)
 
